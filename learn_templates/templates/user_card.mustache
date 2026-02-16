@@ -1,0 +1,32 @@
+{{!
+    Template: user_card
+    Context: local_learn_templates\output\user_card
+
+    Variables:
+    - fullname (string)
+    - email (string)
+    - role (string)
+    - profileurl (string)
+    - pictureurl (string - HTML de la imagen)
+    - timecreated (string)
+    - is_admin (bool)
+}}
+<div class="card mb-3" style="max-width: 400px;">
+    <div class="card-body">
+        <div class="d-flex align-items-center mb-2">
+            <div class="mr-3">{{{pictureurl}}}</div>
+            <div>
+                <h5 class="card-title mb-0">
+                    <a href="{{profileurl}}">{{fullname}}</a>
+                </h5>
+                <span class="badge {{#is_admin}}badge-danger{{/is_admin}}{{^is_admin}}badge-primary{{/is_admin}}">
+                    {{role}}
+                </span>
+            </div>
+        </div>
+        <p class="card-text">
+            <small class="text-muted">{{email}}</small><br>
+            <small class="text-muted">{{#str}} registered, core {{/str}}: {{timecreated}}</small>
+        </p>
+    </div>
+</div>

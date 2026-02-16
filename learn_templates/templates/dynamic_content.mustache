@@ -1,0 +1,20 @@
+{{!
+    Template renderizado desde JavaScript via core/templates.
+    Los datos se pasan como contexto JSON.
+}}
+<div class="alert alert-{{type}} d-flex align-items-center" role="alert">
+    <div class="flex-grow-1">
+        <strong>{{title}}</strong>
+        <p class="mb-0">{{message}}</p>
+        {{#items}}
+        <ul class="mb-0 mt-1">
+            {{#list}}
+            <li>{{name}} — <em>{{description}}</em></li>
+            {{/list}}
+        </ul>
+        {{/items}}
+    </div>
+    {{#showclose}}
+    <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>
+    {{/showclose}}
+</div>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="local/learn_ajax/db" VERSION="2026021500"
+       COMMENT="Tables for learn_ajax plugin">
+    <TABLES>
+        <TABLE NAME="local_learn_ajax_notes" COMMENT="User notes for AJAX demo">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+                <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0"/>
+                <FIELD NAME="title" TYPE="char" LENGTH="255" NOTNULL="true"/>
+                <FIELD NAME="content" TYPE="text" NOTNULL="false"/>
+                <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0"/>
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+                <KEY NAME="fk_userid" TYPE="foreign" FIELDS="userid"
+                     REFTABLE="user" REFFIELDS="id"/>
+            </KEYS>
+            <INDEXES>
+                <INDEX NAME="idx_userid" UNIQUE="false" FIELDS="userid"/>
+            </INDEXES>
+        </TABLE>
+    </TABLES>
+</XMLDB>
